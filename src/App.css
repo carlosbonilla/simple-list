@@ -1,5 +1,11 @@
+body {
+  font-size: 16px;
+  color: #626262;
+  font-family: "Roboto", sans-serif;
+}
+
 h1 {
-  text-align: center
+  text-align: center;
 }
 
 ul {
@@ -8,5 +14,24 @@ ul {
 }
 
 li {
-  padding: 5px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+li:first-child {
+  padding-top: 8px;
+}
+
+section {
+  margin: 0 16px;
+}
+
+.App-header {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+  padding: 8px 0;
+}
+
+.App-header h1 {
+  color: rgba(34, 36, 38, 0.8);
+  font-size: 1.2rem;
 }

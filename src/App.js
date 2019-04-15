@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Items from "./components/Items";
+
 import "./App.css";
 
 class App extends Component {
@@ -22,25 +24,13 @@ class App extends Component {
   };
 
   renderList = key => (
-    <li key={key} onClick={this.addToDone}>
-      {this.state.list[key].name}
+    <li key={key}>
+      <input onClick={this.addToDone} value={this.state.list[key].name} />
     </li>
   );
 
-  handleOnClick = () => {
-    console.log("clicked!");
-  };
-
-  addToDone = event => {
-    console.log(event);
-    // const done = { ...this.state.done };
-    // const item ={name: }
-    // done[`item${Date.now()}`] = item;
-    // this.setState({ done });
-  };
-
   render() {
-    const { list } = this.state;
+    const { list, done } = this.state;
 
     return (
       <div className="App">
@@ -49,11 +39,17 @@ class App extends Component {
         </header>
         <section className="buy">
           <ul className="dont-forget">
-            {Object.keys(list).map(this.renderList)}
+            {Object.keys(list).map(key => (
+              <Items key={key} item={list[key]} />
+            ))}
           </ul>
         </section>
         <section className="done">
-          <ul className="i-remember" />
+          <ul className="i-remember">
+            {Object.keys(done).map(key => (
+              <Items key={key} item={done[key]} />
+            ))}
+          </ul>
         </section>
       </div>
     );
